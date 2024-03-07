@@ -1,0 +1,88 @@
+<!--
+<div class="login-form-parent-div">
+    <mat-card>
+        <mat-toolbar color="primary">
+            <span>Sign In</span>
+          </mat-toolbar>
+        <form class="example-form">
+            <mat-form-field >
+              <input matInput placeholder="Email" >
+            </mat-form-field><br/>
+            <mat-form-field >
+                <input matInput placeholder="Password" >
+              </mat-form-field><br/><br/>
+              <button mat-raised-button color="accent">Submit</button>
+          </form>fd
+    </mat-card>
+</div>
+
+-->
+
+
+
+
+<button routerLink="/chat" style="margin: 20px 0px 0px 100px;">Render Chat system</button>
+
+
+<br/>
+<br/>
+        
+<div class="container">  
+    <div class="row">
+        <br/><br/><br/>
+        <form class="form-google"  >
+        <div class="row-first">
+            <img src="https://th.bing.com/th/id/R.4aa108082e7d3cbd55add79f84612aaa?rik=I4dbPhSe%2fbHHSg&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-google-logo-2015brandlogobrand-logoiconssymbolslogosgoogle-6815229372333mqrr.png&ehk=ewmaCOvP0Ji4QViEJnxSdlrYUrTSTWhi8nZ9XdyCgAI%3d&risl=&pid=ImgRaw&r=0" alt="Google_image" srcset="">
+            <p class="fontSize-signin">Sign in</p>
+            <p>to continue to Gmail</p>
+        </div>
+          <br/>
+        <div class="row-second">
+           
+              <mat-form-field appearance="outline">
+                <mat-label>Email or Phone</mat-label>
+                <input matInput name="email" [(ngModel)]="loginObj.email">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                  <input [type]="password? 'text':'password'" matInput name="password"  [(ngModel)]="loginObj.password" class="password">
+                  <mat-icon class="eyeToggle" (click)="passwordToggle()" *ngIf="password">visibility</mat-icon>
+                  <mat-icon class="eyeToggle" (click)="passwordToggle()" *ngIf="!password">visibility_off</mat-icon>
+                </mat-form-field>
+            
+            <a routerLink="/forget-email">Forget email?</a>
+            
+        </div><br/><br/>
+        <div class="row-third">
+            <small>Not your computer? Use Guest mode to sign in privately.</small>
+            <br>
+            <a href="">Learn more about using Guest mode</a>
+        </div>
+        
+          <br><br>
+        <div class="row-fourth">
+            <a routerLink="/create-account" class="btn-create-account"><!--reset_password-->
+                Create account
+            </a>
+            <button (click)="loginProcess()" mat-button mat-raised-button  class="btn-next" >
+                Next
+            </button>
+        </div>
+      </form>
+    </div>
+        
+        
+        <br><br>
+</div>  
+
+
+
+
+
+
+
+
+  
+    
+
+

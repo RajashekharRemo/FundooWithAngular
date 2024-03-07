@@ -1,0 +1,15 @@
+
+.cardsOfNotes{
+    width: 67vw;
+    display: grid;
+    grid-template-columns: 230px 230px 230px ;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    //border: 2px solid;// #797a7c
+    margin: 0px auto;
+    //position: absolute;
+    //height: fit-content;
+    padding-right: 70px;
+
+}

@@ -1,0 +1,72 @@
+<div >
+    
+
+    <!--  ***************************  -->
+
+    <!-- <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <div>
+            <input type="text" placeholder="Title" >
+            <mat-icon>keep</mat-icon>
+          </div>
+          <input type="text" placeholder="Take a note.." >
+          <mat-icon></mat-icon>
+        </mat-expansion-panel-header>
+        <mat-action-row>
+
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion> -->
+
+    <div class="expansionPanel" #fetchExpansionDivEle>
+
+      <div class="takeNote" (click)="expansionTitle()" *ngIf="expansion">
+        <input type="text" placeholder="Take a Note...">
+        <mat-icon>check_box</mat-icon>
+        <mat-icon>brush</mat-icon>
+        <mat-icon>image</mat-icon>
+
+      </div>
+
+
+      <div class="titleExpansion" *ngIf="!expansion">
+        <input  placeholder="Title" [(ngModel)]="noteObj.title" name="title">
+        <span class="material-symbols-outlined">keep</span>
+      </div>
+      
+      <div class="takeNoteWhenExpanded" *ngIf="!expansion">
+        <input [(ngModel)]="noteObj.description" name="description" placeholder="Take a Note..." >
+      </div>
+      <div class="title-footer" *ngIf="!expansion">
+        <div>
+            <app-notesicons class="iconMargin" (colorChange)="handleEvent($event)" [createNoteDiv]="1"></app-notesicons>
+            <button mat-icon-button><span class="material-symbols-outlined" disabled matTooltip="Undo"> undo </span></button>
+            <button mat-icon-button><span class="material-symbols-outlined" disabled matTooltip="Redo">redo</span></button>
+            
+        </div>
+        <button mat-button (click)="expansionTitle()">Close</button>
+      </div>
+
+      
+
+      <!-- <div class="moreList" >
+        <ul>
+          <li>Add label</li>
+          <li>Add drawing</li>
+          <li>Show checkboxes</li>
+        </ul>
+      </div> -->
+
+    </div>
+    <br/>
+    <!--******************************************************************************************-->
+
+    <div class="cardsOfNotes" >
+      <ng-container *ngFor="let note of usersPrint" >
+        <app-note-cards [notes]="note"></app-note-cards>
+      </ng-container>
+    </div>
+    
+
+  </div>

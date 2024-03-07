@@ -1,0 +1,119 @@
+
+<br/>
+<div class="container">  
+  <mat-container class="inner-container">
+    <div class="container-inner-child1" >
+
+      <div class="row">
+        <br/><br/><br/>
+        <form>
+        <div class="row-first">
+          <img src="https://th.bing.com/th/id/R.4aa108082e7d3cbd55add79f84612aaa?rik=I4dbPhSe%2fbHHSg&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-google-logo-2015brandlogobrand-logoiconssymbolslogosgoogle-6815229372333mqrr.png&ehk=ewmaCOvP0Ji4QViEJnxSdlrYUrTSTWhi8nZ9XdyCgAI%3d&risl=&pid=ImgRaw&r=0" alt="Google_image" srcset="">
+          <p class="fontSize-signin">Create your Google Account</p>
+          
+        </div>
+        <br/>
+        
+        <div class="row-second">
+          <div class="validation-grid">
+              <div>
+                  <mat-form-field appearance="outline" hideRequiredMarker>
+                      <mat-label>First Name</mat-label>
+                      <input matInput name="First_Name" [(ngModel)]="registerObj.First_Name" #firstName="ngModel" minlength="3" required>
+                  </mat-form-field><br>
+                    <span *ngIf="firstName.invalid && (firstName.touched || firstName.dirty) || isFormSubmitted">
+                      <mat-hint *ngIf="firstName.errors?.['required']">This is Required</mat-hint>
+                      <mat-hint *ngIf="firstName.errors?.['minlength']">Min 3 characters needed</mat-hint>
+                    </span>
+                    
+                
+              </div>
+                <div class="form-control-margin-left">
+                    <mat-form-field   appearance="outline" hideRequiredMarker>
+                    <mat-label>Last Name</mat-label>
+                      <input matInput name="Last_Name" [(ngModel)]="registerObj.Last_Name" #lastName="ngModel" minlength="3" required>
+                    </mat-form-field><br/>
+                    <span  *ngIf="lastName.invalid && (lastName.touched || lastName.dirty) || isFormSubmitted">
+                      <mat-hint *ngIf="lastName.errors?.['required']">This is Required</mat-hint>
+                      <mat-hint *ngIf="lastName.errors?.['minlength']">Min 3 characters needed</mat-hint>
+                    </span>
+                </div>
+                <div>
+                    <mat-form-field class="form-control-full-width" appearance="outline" hideRequiredMarker>
+                    <mat-label>Username</mat-label>
+                    <input matInput name="Email" [(ngModel)]="registerObj.Email" #email="ngModel" minlength="8" required pattern="[A-Za-z0-9!#$%&*'_\-]+@[A-Za-z0-9_]+\.[a-z]{2,3}$">
+                    </mat-form-field>
+                    <span  *ngIf="email.invalid && (email.touched || email.dirty) || isFormSubmitted">
+                      <mat-hint *ngIf="email.errors?.['required']">This is Required</mat-hint>
+                      <mat-hint *ngIf="email.errors?.['minlength']">Min 3 characters needed</mat-hint>
+                      <mat-hint *ngIf="email.errors?.['pattern']">Pattern unmatched</mat-hint>
+                    </span>
+                </div>
+          </div>
+            
+              <br/>
+              <span>You can use letters, numbers & periods</span>
+              <br/><br/>
+              <a href="#">Use my current email address instead</a>
+          <br/>
+        </div>
+        <br/><br/>
+        <div class="row-third">
+            <div class="validation-grid">
+              <div>
+                <mat-form-field appearance="outline" hideRequiredMarker>
+                  <mat-label>Password</mat-label>
+                  <input matInput name="Password" [(ngModel)]="registerObj.Password" #password="ngModel" minlength="8" 
+                  required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*_{\-}+'>?`])[A-Za-z0-9!@#$%^&*_{\-}+'>?`]{8,16}$">
+                </mat-form-field><br/>
+                <span *ngIf="password.invalid && (password.touched || password.dirty) || isFormSubmitted">
+                  <mat-hint id="errormessage"  *ngIf="password.errors?.['required']">this is required</mat-hint>
+                  <mat-hint id="errormessage"  *ngIf="password.errors?.['minlength']">Min 3 characters needed</mat-hint>
+                  <mat-hint id="errormessage"  *ngIf="password.errors?.['pattern']">Pattern unmatched</mat-hint>
+                </span>
+                
+              </div>
+              <div class="form-control-margin-left">
+                <mat-form-field appearance="outline" hideRequiredMarker>
+                  <mat-label>Confirm</mat-label>
+                    <input matInput name="confirmPassword" [(ngModel)]="confirmPassword" minlength="3" required>
+                  </mat-form-field>
+                  <span>
+                    <mat-hint id="errormessage" *ngIf="confirmPassword!=registerObj.Password">Password not matched</mat-hint>
+                  </span>
+                  
+              </div>
+              <br/>
+                  
+            </div>
+            <span>Use 8 or more characters with a max of letters, numbers & symbols</span>
+                  <br/>
+                  <mat-checkbox color="primary">Show password</mat-checkbox>
+    
+        </div>
+      
+        <br><br>
+        <div class="row-fourth">
+          <a href="" class="btn-create-account">
+              Sign in instead
+          </a>
+          <button mat-button mat-raised-button class="btn-next" (click)="registerFunction()">
+              Next
+          </button>
+        </div>
+      </form>
+      </div>
+    </div>
+    <div class="container-inner-child2">
+        <div class="sec-child-row">
+            <img src="../../assets/Google_shield.png" alt="" srcset="">
+            <p>One account. All of Google working for you.</p>
+        </div>
+    </div>
+  </mat-container>
+  
+  <br><br>
+  <br/><br/>
+  </div>
+
+

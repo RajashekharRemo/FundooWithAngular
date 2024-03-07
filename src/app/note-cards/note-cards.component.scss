@@ -1,0 +1,50 @@
+
+
+
+
+
+.decreaseCard{
+    width: 230px;
+    margin-top: 20px;
+    height: fit-content;
+    position: relative;
+}
+
+.increaseCard{
+    width: 430px;
+    margin-left: 20px;
+    height: fit-content;
+    position: absolute;
+    z-index: 4;
+
+    mat-card-actions button{
+        float: right;
+        z-index: 3;
+    }
+    
+}
+
+ mat-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.415) 2px 2px 3px 3px;
+}
+
+mat-card-title input{
+    height: 30px;
+    width: 100%;
+    font-size: larger;
+    background-color: rgba(255, 255, 255, 0.012);
+    outline: none;
+    border: none;
+}
+
+
+
+
+mat-card mat-card-actions{
+    opacity: 0;
+
+}
+
+mat-card:hover mat-card-actions{
+    opacity: 1;
+}

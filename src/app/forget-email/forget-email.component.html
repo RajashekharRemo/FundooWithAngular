@@ -1,0 +1,45 @@
+
+<!-- Forget Password -->
+
+<br/><br/>
+<br/><br/>
+
+<div class="container2">  
+  <div class="row">
+    <br/><br/><br/>
+    <div class="row-first">
+      <img src="https://th.bing.com/th/id/R.4aa108082e7d3cbd55add79f84612aaa?rik=I4dbPhSe%2fbHHSg&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-google-logo-2015brandlogobrand-logoiconssymbolslogosgoogle-6815229372333mqrr.png&ehk=ewmaCOvP0Ji4QViEJnxSdlrYUrTSTWhi8nZ9XdyCgAI%3d&risl=&pid=ImgRaw&r=0" alt="Google_image" srcset="">
+      <p class="fontSize-signin">Find your email</p>
+      <p>Enter your phone number or recovery email</p>
+    </div>
+    <br/>
+    <div class="row-second">
+      <form class="form-google">
+        <mat-form-field appearance="outline">
+          <mat-label>Email or Phone</mat-label>
+          <input matInput  >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <mat-label>Password</mat-label>
+                  <input [type]="password? 'text':'password'" matInput name="password"  class="password">
+                  <mat-icon class="eyeToggle" (click)="passwordToggle()" *ngIf="password">visibility</mat-icon>
+                  <mat-icon class="eyeToggle" (click)="passwordToggle()" *ngIf="!password">visibility_off</mat-icon>
+
+          </mat-form-field>
+      </form>
+      <br/>
+      
+    </div>
+  
+    <br><br>
+    <div class="row-fourth2">
+      <button mat-button mat-raised-button class="btn-next">
+          Next
+      </button>
+    </div>
+  </div>
+  
+  
+  <br><br>
+  </div>

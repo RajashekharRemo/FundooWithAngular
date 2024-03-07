@@ -1,0 +1,88 @@
+button mat-icon{
+    font-size: medium;
+    color: rgba(0, 0, 0, 0.692);
+    
+}
+
+button:hover{
+    background-color: #c9cdd3cd;
+}
+
+
+.addColors{
+    position: absolute;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.415) 2px 2px 3px 3px;
+    padding: 10px;
+    z-index: 3;
+    top: 118px;
+    left: 57px;
+    border-radius: 5px;
+}
+
+.addColors button{
+    cursor: pointer;
+}
+
+
+// -- more ----
+
+.moreList{
+    position: absolute;
+    left: 100px;
+    width: 170px;
+    height: fit-content;
+    //border: 2px solid;
+    z-index: 1;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.153) 2px 4px 2px 2px;
+     border-radius: 5px;
+}
+
+.moreList ul{
+    list-style: none;
+    padding-left: 0px;
+    width: 100%;
+}
+.moreList ul li{
+    height: 25px;
+    padding-left: 10px;
+    padding-top: 7px;
+    font-size: 14px;
+}
+.moreList ul li:hover{
+    background-color: #efeff1;
+    cursor: pointer;
+}
+
+
+//--======================
+
+
+.moreNoteList{
+    position: absolute;
+    left: 100px;
+    width: 140px;
+    height: fit-content;
+    //border: 2px solid;
+    z-index: 1;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.153) 2px 4px 2px 2px;
+     border-radius: 5px;
+}
+
+.moreNoteList ul{
+    list-style: none;
+    padding-left: 0px;
+    width: 100%;
+}
+.moreNoteList ul li{
+    height: 25px;
+    padding-left: 10px;
+    padding-top: 7px;
+    font-size: 14px;
+}
+.moreNoteList ul li:hover{
+    background-color: #efeff1;
+    cursor: pointer;
+}

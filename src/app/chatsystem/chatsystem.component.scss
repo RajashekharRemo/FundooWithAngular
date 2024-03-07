@@ -1,0 +1,142 @@
+.container{
+    width: 100%;
+    height: 700px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    height: 600px;
+    width: 800px;
+    border: 2px solid black;
+    border-radius: 18px;
+    
+}
+
+.row .row-title{
+    height: 80px;
+    width: 100%;
+    //border: 2px solid black;
+    display: flex;
+    align-items: center;
+    background-color: rgba(23, 48, 86, 0.556);
+    border-radius: 18px 18px 0px 0px;
+}
+
+.account-button{
+    margin-left: 6px;
+}
+
+mat-icon{
+    font-size: 30px;
+    color: white;
+}
+
+.account-button mat-icon{
+    font-size: 60px;
+    color: white;
+}
+
+.row-title span{
+    margin-left: 40px;
+    color: white;
+}
+.row-title span mat-hint{
+    font-size: small;
+    color: white;
+}
+
+.row-title span p{
+    height: 10px;
+}
+
+
+.row-title .video-icon, .video-icon button{
+    margin-left: 20px;
+}
+
+
+
+
+.row-content{
+    height: 430px;
+    //border: 2px solid;
+}
+
+.row-content .messages{
+    //border: 2px solid;
+    height: 80px;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.messages button mat-icon{
+    color: black;
+    font-size: 60px;
+}
+
+
+.messages1 span{
+    margin-left: 40px;
+}
+
+.messages1 span p{
+    background-color: rgba(56, 80, 177, 0.746);
+    height: 30px;
+    padding: 5px 30px 0px 20px;
+    border-radius: 5px;
+}
+
+.messages2{
+    display: flex;
+    justify-content: flex-end;
+    //border: 2px solid black;
+}
+
+.messages2 button{
+    margin-right: 45px;
+}
+
+
+.messages2 span p{
+    //border: 2px solid red;
+    background-color: rgb(87, 174, 87);
+    height: 30px;
+    padding: 5px 30px 0px 20px;
+    border-radius: 5px;
+}
+
+
+
+.card-footer{
+    
+    //border: 2px solid;
+    height: 80px;
+    width: 100%;
+    
+}
+
+.card-footer div{
+    height: 70px;
+    width: 90%;
+    margin: 0px auto;
+    //border: 2px solid;
+    display: flex;
+    align-items: center;
+    background-color: rgba(56, 50, 50, 0.336);
+    border-radius: 15PX;
+}
+
+.card-footer div input{
+    width: 86%;
+    background-color: rgba(0, 0, 0, 0.009);
+    height: 40px;
+    border: none;
+    padding-left: 10px;
+}
+
+
