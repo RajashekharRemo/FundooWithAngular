@@ -1,0 +1,28 @@
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="cardsOfNotes" >
+    <ng-container *ngFor="let notes of usersPrint" >
+      <!-- <app-note-cards [notes]="note"></app-note-cards> -->
+
+
+      <div [class]="noteTodo?'make-side-dark-card':'make-side-normal-card'">
+        <mat-card [style.background-color]="notes.color"  [class]="noteTodo?'increaseCard':'decreaseCard'" >
+            <mat-card-title (click)="notesIncrease()">
+              <input type="text" [(ngModel)]="notes.title"   >
+            </mat-card-title>
+            <mat-card-content (click)="notesIncrease()">
+              {{notes.description}}
+            </mat-card-content>
+            <mat-card-actions>
+              <!-- <app-notes-icons [noteId]="notes.id"></app-notes-icons> -->
+              <app-icons class="iconMargin" [NoteId]="notes.id" (toggleTrash)="handleTrash($event)"></app-icons><!--(colorChange)="handleEvent($event)"-->
+              <button mat-button (click)="notesDecrease()" *ngIf="noteTodo">Close</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+
+    </ng-container>
+  </div>

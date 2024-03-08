@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { NotesComponent } from '../notes/notes.component';
 import { FundooAppService } from 'src/app/service/fundoo-app.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,12 +11,23 @@ import { FundooAppService } from 'src/app/service/fundoo-app.service';
 })
 export class NotesiconsComponent implements OnInit {
 
-  constructor(private notes:NotesComponent, private services:FundooAppService) { }
+
+  user:any={
+    id:'',
+    first_name:'',
+    last_Name:'',
+    email:'',
+    token:''
+  }
+
+  constructor(private notes:NotesComponent, private services:FundooAppService, private route:Router, private activeRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    debugger;
   }
 
 @Output() colorChange=new EventEmitter<string>();
+//@Output() callParent=new EventEmitter<string>();
 
 @Input() noteId:any;
 @Input() createNoteDiv:any;
@@ -53,12 +65,23 @@ export class NotesiconsComponent implements OnInit {
   }
 
 
-  deleteNote(){
-    this.services.deleteNoteById(this.noteId).subscribe(res=>{
+  trashNoteById(){
+    this.services.trashNoteById(this.noteId).subscribe(res=>{
       console.log(res);
-      this.notes.ngOnInit();
+      //this.notes.ngOnInit();
     })
     //console.log(this.noteId)
+  }
+
+  archive($e:any){
+    this.services.archiveNotes(this.noteId).subscribe(res=>{
+      console.log(res);
+      //this.route.navigate(['notes'], {queryParams:this.user});
+      //this.notes.ngOnInit();
+      //this.ngOnInit();
+      //this.callParent.emit($e);
+
+    })
   }
 
 }

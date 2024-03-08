@@ -1,0 +1,94 @@
+
+
+<div >
+    
+
+    <!--  ***************************  -->
+
+    <!-- <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <div>
+            <input type="text" placeholder="Title" >
+            <mat-icon>keep</mat-icon>
+          </div>
+          <input type="text" placeholder="Take a note.." >
+          <mat-icon></mat-icon>
+        </mat-expansion-panel-header>
+        <mat-action-row>
+
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion> -->
+
+    <div class="expansionPanel" #fetchExpansionDivEle>
+
+      <div class="takeNote" (click)="expansionTitle()" *ngIf="expansion">
+        <input type="text" placeholder="Take a Note...">
+        <mat-icon>check_box</mat-icon>
+        <mat-icon>brush</mat-icon>
+        <mat-icon>image</mat-icon>
+
+      </div>
+
+
+      <div class="titleExpansion" *ngIf="!expansion">
+        <input  placeholder="Title" [(ngModel)]="noteObj.title" name="title">
+        <span class="material-symbols-outlined">keep</span>
+      </div>
+      
+      <div class="takeNoteWhenExpanded" *ngIf="!expansion">
+        <input [(ngModel)]="noteObj.description" name="description" placeholder="Take a Note..." >
+      </div>
+      <div class="title-footer" *ngIf="!expansion">
+        <div>
+            <app-icons class="iconMargin" (colorChange)="handleEvent($event)" [createNoteDiv]="1"></app-icons>
+            <!-- <app-notesicons class="iconMargin"  [createNoteDiv]="1"></app-notesicons>(colorChange)="handleEvent($event)" -->
+            <button mat-icon-button><span class="material-symbols-outlined" disabled matTooltip="Undo"> undo </span></button>
+            <button mat-icon-button><span class="material-symbols-outlined" disabled matTooltip="Redo">redo</span></button>
+            
+        </div>
+        <button mat-button (click)="expansionTitle()">Close</button>
+      </div>
+
+      
+
+      <!-- <div class="moreList" >
+        <ul>
+          <li>Add label</li>
+          <li>Add drawing</li>
+          <li>Show checkboxes</li>
+        </ul>
+      </div> -->
+
+    </div>
+    <br/>
+    <!--******************************************************************************************-->
+
+    <div class="cardsOfNotes" >
+      <ng-container *ngFor="let notes of usersPrint" >
+        <!-- <app-note-cards [notes]="notes"></app-note-cards> -->
+
+
+
+        <div [class]="noteTodo?'make-side-dark-card':'make-side-normal-card'">
+          <mat-card [style.background-color]="notes.color"  [class]="noteTodo?'increaseCard':'decreaseCard'" >
+              <mat-card-title (click)="notesIncrease()">
+                <input type="text" [(ngModel)]="notes.title"   >
+              </mat-card-title>
+              <mat-card-content (click)="notesIncrease()">
+                {{notes.description}}
+              </mat-card-content>
+              <mat-card-actions>
+                <!-- <app-notes-icons [noteId]="notes.id"></app-notes-icons> -->
+                <app-icons class="iconMargin" [NoteId]="notes.id" (toggleTrash)="handleTrash($event)" (toggleArchive)="handleArchive($event)"></app-icons><!--(colorChange)="handleEvent($event)"-->
+                <button mat-button (click)="notesDecrease()" *ngIf="noteTodo">Close</button>
+              </mat-card-actions>
+            </mat-card>
+      </div>
+
+      </ng-container>
+    </div>
+    
+
+  </div>

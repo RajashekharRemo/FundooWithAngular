@@ -1,13 +1,13 @@
 <button mat-icon-button matTooltip="Reming me"><mat-icon >add_alert</mat-icon></button>
 <button mat-icon-button matTooltip="Collaborator"><mat-icon >person_add</mat-icon></button>
-<button mat-icon-button matTooltip="Background options" (click)="callColors()"><mat-icon  >palette</mat-icon></button>
+<button mat-icon-button matTooltip="Background options" (click)="callColors()"><mat-icon  >palette</mat-icon></button><!--(click)="callColors()"-->
 <button mat-icon-button matTooltip="Add image"><mat-icon>image</mat-icon></button>
-<button mat-icon-button matTooltip="Archive" (click)="archive('4')"><mat-icon >archive</mat-icon></button>
-<button mat-icon-button matTooltip="More" (click)="toggleMore()"><mat-icon >more_vert</mat-icon></button>
+<button mat-icon-button matTooltip="Archive" (click)="archive()"><mat-icon >archive</mat-icon></button><!--(click)="archive('4')"-->
+<button mat-icon-button matTooltip="More" (click)="toggleMore()"><mat-icon >more_vert</mat-icon></button><!--(click)="toggleMore()"-->
 
 
 
-<div class="addColors" *ngIf="colorTodo" >
+<div class="addColors" *ngIf="colorTodo"><!--*ngIf="colorTodo" -->
     <button mat-icon-button (click)="addColors('#fff')"  style="background-color: #fff; border: 0.5px solid indigo; " ><span class="material-symbols-outlined"> format_color_reset</span></button>
     <button mat-icon-button (click)="addColors('#faafa8')"  style="background-color: #faafa8;" ></button>
     <button mat-icon-button (click)="addColors('#f39f76')"  style="background-color: #f39f76;" ></button>
@@ -21,9 +21,9 @@
     <button mat-icon-button (click)="addColors('#efeff1')"  style="background-color: #efeff1;" ></button>
   </div>
 
-  <div class="moreList" ><!--*ngIf="more"-->
+  <div class="moreList" *ngIf="more"><!--*ngIf="more"-->
         <ul>
-            <li (click)="trashNoteById()">Delete note</li>
+            <li (click)="trashNoteById()">Delete note</li><!--(click)="trashNoteById()"-->
             <li>Add label</li>
             <li>Add drawing</li>
             <li>Make a copy</li>
@@ -33,11 +33,10 @@
         </ul>
     </div>
 
-    <div class="moreNoteList" ><!--*ngIf="moreNoteDiv"-->
+    <div class="moreNoteList" *ngIf="moreNoteDiv"><!--*ngIf="moreNoteDiv"-->
         <ul>
             <li>Add label</li>
             <li>Add drawing</li>
             <li>Show checkboxes</li>
         </ul>
     </div>
-  

@@ -37,13 +37,13 @@ export class NotesUIMainComponent implements OnInit {
   constructor(private router:Router, private notes:NotesComponent, private activeRoute:ActivatedRoute, private service:FundooAppService) { }
 
   ngOnInit(): void {
-    this.activeRoute.queryParams.subscribe((params:any)=>{ // u have passed values in login.ts but u can access any where note routing
-      console.log(params.id);
-      this.user=params;
-      debugger;
-      console.log(this.user.id)
-    })
-
+    // this.activeRoute.queryParams.subscribe((params:any)=>{ // u have passed values in login.ts but u can access any where note routing
+    //   console.log(params.id);
+    //   this.user=params;
+    //   debugger;
+    //   console.log(this.user.id)
+    // })
+    this.user.id=4;
     this.getAllNotes();
   }
 
@@ -53,7 +53,6 @@ export class NotesUIMainComponent implements OnInit {
 
   expansion=true;
 
-  formData:FormData=new FormData();
 
   expansionTitle(){
     debugger;
@@ -73,8 +72,8 @@ export class NotesUIMainComponent implements OnInit {
         this.noteObj.title='';
         this.noteObj.color='#fff';
         this.noteObj.description='';
-        this.ngOnInit();
-        this.callParent();
+        //this.ngOnInit();
+        //this.callParent();
       },(err)=>{
         console.log(err);
         
@@ -117,7 +116,7 @@ export class NotesUIMainComponent implements OnInit {
 
   handleEvent($event:any){
 
-    this.d.nativeElement.style.backgroundColor=$event;
+    //this.d.nativeElement.style.backgroundColor=$event;
     this.noteObj.color=$event;
     
   }

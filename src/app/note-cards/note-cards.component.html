@@ -7,7 +7,8 @@
           {{notes.description}}
         </mat-card-content>
         <mat-card-actions>
-          <app-notesicons [noteId]="notes.id"></app-notesicons>
+          <!-- <app-notes-icons [noteId]="notes.id"></app-notes-icons> -->
+          <app-icons class="iconMargin" [NoteId]="notes.id"></app-icons><!--(colorChange)="handleEvent($event)"-->
           <button mat-button (click)="notesDecrease()" *ngIf="noteTodo">Close</button>
         </mat-card-actions>
       </mat-card>

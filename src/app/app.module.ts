@@ -39,6 +39,12 @@ import { TrashComponent } from './trash/trash.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { FundooAppService } from './service/fundoo-app.service';
 import { NotesUIMainComponent } from './notes-uimain/notes-uimain.component';
+import { DashBoardContainerComponent } from './dash-board-container/dash-board-container.component';
+import { NotesContainerComponent } from './notes-container/notes-container.component';
+import { TrashContainerComponent } from './trash-container/trash-container.component';
+import { ArchiveContainerComponent } from './archive-container/archive-container.component';
+import { NoteNewContainerComponent } from './note-new-container/note-new-container.component';
+import { IconsComponent } from './icons/icons.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +60,13 @@ import { NotesUIMainComponent } from './notes-uimain/notes-uimain.component';
     NoteCardsComponent,
     TrashComponent,
     ArchiveComponent,
-    NotesUIMainComponent
+    NotesUIMainComponent,
+    DashBoardContainerComponent,
+    NotesContainerComponent,
+    TrashContainerComponent,
+    ArchiveContainerComponent,
+    NoteNewContainerComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule,

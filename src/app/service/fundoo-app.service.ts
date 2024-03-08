@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
-})
+})  // it helps us dependency injection
 export class FundooAppService {
 
   user:any={
@@ -66,6 +66,16 @@ export class FundooAppService {
     return this.http.delete(this.NotesApiUrl+`/DeleteById?Id=${Id}`)
   }
 
+  archiveNotes(Id:any):Observable<any>{
+    debugger;
+    return this.http.put(this.NotesApiUrl+`/ToggleArchive?noteId=${Id}`,{}, {
+      responseType:'text'
+    })
+  }
+
+  trashNoteById(Id:any):Observable<any>{
+    return this.http.put(this.NotesApiUrl+`/ToggleTrash?noteId=${Id}`, {}, {responseType:'text'})
+  }
 
 
 }

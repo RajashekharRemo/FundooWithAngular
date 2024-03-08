@@ -1,0 +1,315 @@
+
+mat-nav-list a{
+    border-radius: 0px 20px 20px 0px;
+}
+
+mat-nav-list a:hover{
+    background-color: #24467912;
+}
+
+mat-sidenav{
+    width: 280px;
+    padding-left: 10px;
+    border: none;
+}
+
+mat-nav-list a label{
+    margin-left: 30px;
+}
+
+mat-toolbar-row{
+    margin: 0px auto;
+}
+
+mat-toolbar-row img{
+    margin: 0px 8px 0px 8px;
+    height: 40px;
+}
+
+mat-toolbar-row p{
+    font-size: 22px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0, 0, 0, 0.692);
+    //background-color: #24467912;
+
+}
+
+mat-toolbar-row .mat-toolbar-row-col1{
+    border: 2px solid black;
+    width: 400px;
+}
+
+mat-toolbar-row .mat-toolbar-row-col2{
+    background-color: #24467912;
+    width: 705px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 90px;
+    padding-left: 17px;
+
+}
+mat-toolbar-row .mat-toolbar-row-col2:hover{
+    background-color: white;
+}
+
+.mat-toolbar-row-col2 input{
+    width: 500px;
+    margin-left: 15px;
+    font-size: medium;
+    font-weight: 400;
+    background-color: #24467903;
+    outline: none;
+    border: none;
+}
+
+
+mat-toolbar-row .mat-toolbar-row-col3{
+    width: 270px;
+    height: 50px;
+    //border: 2px solid black;
+    margin-left: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(0, 0, 0, 0.692);
+}
+
+
+// @media (max-width:700px){
+    
+//   mat-toolbar-row .mat-toolbar-row-col3{
+//     width: 270px;
+//     height: 50px;
+//     //border: 2px solid black;
+//     margin-left: 130px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     color: rgba(0, 0, 0, 0.692);
+//   }
+// }
+
+.increase_size{
+    margin: 0px 7px 0px 8px;
+}
+
+.increase_size mat-icon{
+    font-size: 40px;
+    margin-bottom: 10px;
+
+}
+
+.apps{
+    margin-left: 26px;
+}
+
+
+
+.ProfileDialog{
+    height: 250px;
+    width: 330px;
+    //border: 2px solid black;
+    float: right;
+    position: absolute;
+    top: 18px;
+    right: 5px;
+    //background-color: aqua;
+    background-color: #c9cdd3;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.142) 2px 2px 15px 15px;
+    text-align: center;
+    z-index: 1;
+}
+
+.closeRight{
+    float: right;
+}
+
+.profile-margin{
+    font-size: 30px;
+    margin-left: 25px;
+}
+
+.account-manage{
+    border-radius: 5px;
+     color: #0d6efd;
+     border: 1px solid rgba(80, 75, 75, 0.519);
+     height: 25px;
+     cursor: pointer;
+}
+
+
+
+.manageAccount1{
+    height: 100px;
+    padding: 7px 5px 7px 8px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 15px 0px 0px 15px;
+}
+
+.manageAccount1:hover{
+    background-color: #c9cdd3;
+    cursor: pointer;
+}
+
+.manageAccount2{
+    height: 100px;
+    margin-left: 2px;
+    padding: 7px 15px 7px 0px;
+    background-color: white;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.manageAccount2:hover{
+    background-color: #c9cdd3;
+    cursor: pointer;
+}
+
+.ProfileDialog mat-hint{
+    font-size: small;
+}
+
+mat-sidenav-content{
+    background-color: white;
+}
+
+// expansion============================================
+
+.expansionPanel{
+    width: 590px;
+    //border: 2px solid;
+    border-radius: 7px;
+    margin: 30px auto;
+    box-shadow: rgba(0, 0, 0, 0.142) 2px 2px 5px 5px;
+    position: relative;
+}
+
+.titleExpansion{
+    width: 560px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+
+.titleExpansion input{ 
+    height: 30px;
+    width: 540px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.takeNote{
+    width: 560px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 8px 5px 0px;
+    color: rgba(0, 0, 0, 0.692);
+}
+
+.takeNote input{ 
+    height: 30px;
+    width: 390px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+
+
+.takeNoteWhenExpanded{
+    width: 560px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+
+.takeNoteWhenExpanded input{
+    height: 30px;
+    width: 570px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.title-footer{
+    width: 560px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+
+.title-footer div{
+    //border: 2px solid black;
+    width: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.title-footer div button span{
+    color: rgba(0, 0, 0, 0.692);
+    font-size: 22px;
+}
+
+.iconMargin  {
+    display: flex;
+    gap: 4px;
+}
+
+
+
+
+// -- more ----
+
+.moreList{
+    position: absolute;
+    left: 100px;
+    width: 150px;
+    height: 100px;
+    border: 2px solid;
+    z-index: 1;
+}
+
+.moreList ul{
+    list-style: none;
+    padding-left: 10px;
+    width: 100%;
+}
+.moreList ul li{
+    height: 25px;
+}
+
+
+//==========
+
+
+.cardsOfNotes{
+    width: 67vw;
+    display: grid;
+    grid-template-columns: 230px 230px 230px ;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    //border: 2px solid;// #797a7c
+    margin: 0px auto;
+    //position: absolute;
+    //height: fit-content;
+    padding-right: 70px;
+
+}

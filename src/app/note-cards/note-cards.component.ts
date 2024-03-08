@@ -13,7 +13,7 @@ export class NoteCardsComponent implements OnInit {
 
   ngOnInit(): void {
     debugger
-    console.log(this.notes);
+    console.log('cards calling');
     
   }
 

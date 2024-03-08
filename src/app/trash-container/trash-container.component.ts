@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Notes } from '../models/user.model';
 import { FundooAppService } from '../service/fundoo-app.service';
 import { ActivatedRoute } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { Notes } from '../models/user.model';
 
 @Component({
-  selector: 'app-trash',
-  templateUrl: './trash.component.html',
-  styleUrls: ['./trash.component.scss']
+  selector: 'app-trash-container',
+  templateUrl: './trash-container.component.html',
+  styleUrls: ['./trash-container.component.scss']
 })
-export class TrashComponent implements OnInit {
+export class TrashContainerComponent implements OnInit {
 
   constructor(private service:FundooAppService, private activeRoute:ActivatedRoute) { }
 
@@ -24,18 +23,18 @@ export class TrashComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activeRoute.queryParams.subscribe((params:any)=>{
-      console.log(params.id);
-      this.user=params;
-      debugger;
-      console.log(this.user.id)
-      this.getAllNotes();
-    })
+    // this.activeRoute.queryParams.subscribe((params:any)=>{
+    //   console.log(params.id);
+    //   this.user=params;
+    //   debugger;
+    // })
+    this.getAllNotes();
   }
+
 
   getAllNotes(){
     debugger;
-    this.service.getAllNotes(this.user.id).subscribe(resp=>{
+    this.service.getAllNotes(localStorage.getItem('id')).subscribe(resp=>{
       //this.usersPrint=resp;
       //this.usersPrint.reverse();
       this.usersPrint=resp.filter((res)=>{
@@ -50,6 +49,21 @@ export class TrashComponent implements OnInit {
 
       console.log(this.usersPrint[0].isArchive+"from Get method")
     });
+  }
+
+
+
+  noteTodo=false;
+  notesIncrease(){
+    this.noteTodo=true;
+  }
+
+  notesDecrease(){
+    this.noteTodo=false;
+  }
+
+  handleTrash($Id:any){
+    this.usersPrint=this.usersPrint.filter(res=>res.id!=$Id)
   }
 
 
