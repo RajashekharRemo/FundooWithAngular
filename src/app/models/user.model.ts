@@ -16,5 +16,6 @@ export interface Notes{
     isArchive: boolean,
     isPinned: boolean,
     isTrash: boolean,
+    modifiedAt:Date,
     userId: number
 }

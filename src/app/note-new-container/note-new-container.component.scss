@@ -135,6 +135,40 @@
 
 }
 
+@media (max-width:875.98px) {
+    .cardsOfNotes{
+        width: 67vw;
+        display: grid;
+        grid-template-columns: 230px 230px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        //border: 2px solid;// #797a7c
+        margin: 0px auto;
+        //position: absolute;
+        //height: fit-content;
+        padding-right: 70px;
+    
+    }
+}
+
+@media (max-width:575.98px) {
+    .cardsOfNotes{
+        width: 67vw;
+        display: grid;
+        grid-template-columns: 230px ;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        //border: 2px solid;// #797a7c
+        margin: 0px auto;
+        //position: absolute;
+        //height: fit-content;
+        padding-right: 70px;
+    
+    }
+}
+
 
 //==============
 
@@ -146,6 +180,7 @@
     margin-top: 20px;
     height: fit-content;
     position: relative;
+    text-wrap: wrap;
 }
 
 .increaseCard{
@@ -187,4 +222,10 @@ mat-card:hover mat-card-actions{
     opacity: 1;
 }
 
+//===========================
+
+.custom-modalbox{
+    padding: 0px ;
+    border: 2px solid
+}
 

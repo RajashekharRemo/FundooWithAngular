@@ -1,0 +1,63 @@
+<div [style.background]="Notes.color" >
+    <mat-card [style.background-color]="Notes.color"  class="decreaseCard">
+        <mat-card-title (click)="notesIncrease(Notes)"><!--(click)="notesIncrease(notes)"-->
+          <p>{{Notes.title}}</p>
+        </mat-card-title>
+        <br/>
+        <mat-card-content (click)="notesIncrease(Notes)"> <!--(click)="notesIncrease(notes)"-->
+          {{Notes.description}}
+        </mat-card-content>
+        <mat-card-actions>
+          <!-- <app-notes-icons [noteId]="notes.id"></app-notes-icons> -->
+          <!-- <app-icons class="iconMargin" [NoteId]="notes.id" (toggleArchive)="handleArchive(notes)" (colorChange)="changeIteratedCardColor($event, notes)"></app-icons>(colorChange)="handleEvent($event)" -->
+
+            <button mat-icon-button matTooltip="Reming me"><mat-icon >add_alert</mat-icon></button>
+            <button mat-icon-button matTooltip="Collaborator"><mat-icon >person_add</mat-icon></button>
+            <button mat-icon-button matTooltip="Background options" (click)="callColors()"><mat-icon  >palette</mat-icon></button><!--(click)="callColors()"-->
+            <button mat-icon-button matTooltip="Add image"><mat-icon>image</mat-icon></button>
+            <button mat-icon-button matTooltip="Archive" (click)="archive()"><mat-icon >archive</mat-icon></button><!--(click)="archive('4')"-->
+            <button mat-icon-button matTooltip="More" (click)="toggleMore()" ><mat-icon >more_vert</mat-icon></button><!--(click)="toggleMore()"-->
+
+
+          <!-- <button mat-button (click)="notesDecrease()" *ngIf="noteTodo">Close</button> -->
+        </mat-card-actions>
+      </mat-card>
+</div>
+
+
+
+
+
+<div class="addColors" *ngIf="colorTodo"><!--*ngIf="colorTodo" -->
+    <button mat-icon-button (click)="addColors('#fff')"  style="background-color: #fff; border: 0.5px solid indigo; " ><span class="material-symbols-outlined"> format_color_reset</span></button>
+    <button mat-icon-button (click)="addColors('#faafa8')"  style="background-color: #faafa8;" ></button>
+    <button mat-icon-button (click)="addColors('#f39f76')"  style="background-color: #f39f76;" ></button>
+    <button mat-icon-button (click)="addColors('#fff8b8')"  style="background-color: #fff8b8;" ></button>
+    <button mat-icon-button (click)="addColors('#e2f6d3')"  style="background-color: #e2f6d3;" ></button>
+    <button mat-icon-button (click)="addColors('#b4ddd3')"  style="background-color: #b4ddd3;" ></button>
+    <button mat-icon-button (click)="addColors('#d4e4ed')"  style="background-color: #d4e4ed;" ></button>
+    <button mat-icon-button (click)="addColors('#aeccdc')"  style="background-color: #aeccdc;" ></button>
+    <button mat-icon-button (click)="addColors('#d3bfbd')"  style="background-color: #d3bfbd;" ></button>
+    <button mat-icon-button (click)="addColors('#f6e2dd')"  style="background-color: #f6e2dd;" ></button>
+    <button mat-icon-button (click)="addColors('#efeff1')"  style="background-color: #efeff1;" ></button>
+  </div>
+
+  <div class="moreList" *ngIf="more" ><!--*ngIf="more"--><!--(click)="closerOverlay($event)"-->
+        <ul>
+            <li (click)="trashNoteById()">Delete note</li><!--(click)="trashNoteById()"-->
+            <li>Add label</li>
+            <li>Add drawing</li>
+            <li>Make a copy</li>
+            <li>Show checkboxes</li>
+            <li>Copy to Fundoo Docs</li>
+            <li>Version history</li>
+        </ul>
+    </div>
+
+    <!-- <div class="moreNoteList" *ngIf="moreNoteDiv">
+        <ul>
+            <li>Add label</li>
+            <li>Add drawing</li>
+            <li>Show checkboxes</li>
+        </ul>
+    </div> -->

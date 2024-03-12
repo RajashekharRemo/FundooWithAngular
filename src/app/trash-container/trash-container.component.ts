@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FundooAppService } from '../service/fundoo-app.service';
 import { ActivatedRoute } from '@angular/router';
 import { Notes } from '../models/user.model';
+import { MatDialog } from '@angular/material/dialog';
+import { EditContainerComponent } from '../edit-container/edit-container.component';
 
 @Component({
   selector: 'app-trash-container',
@@ -10,7 +12,7 @@ import { Notes } from '../models/user.model';
 })
 export class TrashContainerComponent implements OnInit {
 
-  constructor(private service:FundooAppService, private activeRoute:ActivatedRoute) { }
+  constructor(private service:FundooAppService, private activeRoute:ActivatedRoute, private matDialog:MatDialog) { }
 
   usersPrint:Notes[]=[];
 
@@ -45,26 +47,85 @@ export class TrashContainerComponent implements OnInit {
 
       return false;
       })
-      console.log(resp[0].isArchive)
-
-      console.log(this.usersPrint[0].isArchive+"from Get method")
+      
     });
   }
 
 
 
-  noteTodo=false;
-  notesIncrease(){
-    this.noteTodo=true;
+  // noteTodo=false;
+  // notesIncrease(){
+  //   this.noteTodo=true;
+  // }
+
+  // notesDecrease(){
+  //   this.noteTodo=false;
+  // }
+
+
+  deleteNote(note:any){
+    this.service.deleteNoteById(note.id).subscribe(res=>{
+      console.log("Deleted");
+      
+    })
+    this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id && res.isTrash!=note.isTrash)
+
   }
 
-  notesDecrease(){
-    this.noteTodo=false;
+
+
+  toggleTrash(note:any){
+    this.service.trashNoteById(note.id).subscribe(res=>{
+      console.log(res);
+      this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id && res.isTrash!=note.isTrash)
+     
+    })
+    //console.log(this.noteId)
   }
 
-  handleTrash($Id:any){
-    this.usersPrint=this.usersPrint.filter(res=>res.id!=$Id)
-  }
+  
+UpdatedNotes={
+  id:'',
+  title:'',
+  description:'',
+  color:''
+}
+
+noteTodo=true;
+notesIncrease(Notes:any){
+  //this.noteTodo=true;
+  // console.log(Notes);
+  // console.log(" from Increase");
+  this.noteTodo=false;
+  
+  
+  const dialogRef=this.matDialog.open(EditContainerComponent, {width:'560px', data:Notes, panelClass: 'custom-modalbox'});
+  dialogRef.afterClosed().subscribe(resp => {
+    console.log('The dialog was closed');
+    
+    var res=this.usersPrint.filter(obj => obj.id === Notes.id );
+    console.log(res);
+
+    const obj = Object.assign({}, ...res);
+    //console.log("==============");
+    
+    this.UpdatedNotes.id=obj.id;
+    this.UpdatedNotes.title=obj.title;
+    this.UpdatedNotes.description=obj.description;
+    this.UpdatedNotes.color=obj.color;
+
+    this.service.updateNotes(this.UpdatedNotes).subscribe(res=>{
+      console.log(res);
+this.noteTodo=true;
+    })
+    //console.log(this.UpdatedNotes);
+    //console.log("Updated notes");
+    
+    
+    });
+
+  } 
+
 
 
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { FundooAppService } from '../service/fundoo-app.service';
 
@@ -7,13 +7,16 @@ import { FundooAppService } from '../service/fundoo-app.service';
   templateUrl: './icons.component.html',
   styleUrls: ['./icons.component.scss']
 })
-export class IconsComponent implements OnInit {
+export class IconsComponent implements OnInit, OnChanges {
 
   constructor( private services:FundooAppService, private route:Router) { }
 
   ngOnInit(): void {
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
 
   @Output() colorChange=new EventEmitter<string>();
 
@@ -21,7 +24,7 @@ export class IconsComponent implements OnInit {
     //console.log(e);
     //this.color=$e;
     this.colorChange.emit($e);
-
+    this.colorTodo=!this.colorTodo;
     
   }
 
@@ -30,6 +33,12 @@ export class IconsComponent implements OnInit {
   callColors(){
     this.colorTodo=!this.colorTodo;
     
+  }
+
+  closerOverlay(event:any){
+    if(event.target.classList.contains('moreList')){
+      this.more=false;
+    }
   }
 
 

@@ -1,9 +1,9 @@
 <div [class]="noteTodo?'make-side-dark-card':'make-side-normal-card'">
-    <mat-card [style.background-color]="notes.color"  [class]="noteTodo?'increaseCard':'decreaseCard'" >
-        <mat-card-title (click)="notesIncrease()">
+    <mat-card [style.background-color]="notes.color"  ><!--[class]="noteTodo?'increaseCard':'decreaseCard'" -->
+        <mat-card-title ><!--(click)="notesIncrease()"-->
           <input type="text" [(ngModel)]="notes.title"   >
         </mat-card-title>
-        <mat-card-content (click)="notesIncrease()">
+        <mat-card-content ><!--(click)="notesIncrease()"-->
           {{notes.description}}
         </mat-card-content>
         <mat-card-actions>

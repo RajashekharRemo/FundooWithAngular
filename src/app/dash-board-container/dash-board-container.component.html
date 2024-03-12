@@ -1,50 +1,51 @@
 
 <mat-toolbar >
-    <mat-toolbar-row>
-          <button mat-icon-button>
-            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-          </button>
-          <img src="../../assets/Google_keep.png" alt="" srcset="">
-          <p>Keep</p>
-        <div class="mat-toolbar-row-col2">
-          <mat-icon>search</mat-icon>
-          <input matInput placeholder="Search">
-        </div>
-        <div class="mat-toolbar-row-col3" align="end">
-          <button mat-icon-button matTooltip="refresh"><mat-icon>refresh</mat-icon></button>
-          <button mat-icon-button matTooltip="List view"><mat-icon>view_stream</mat-icon></button>
-          <button mat-icon-button matTooltip="Settings"><mat-icon>settings</mat-icon></button>
-          <button mat-icon-button matTooltip="Google apps"><mat-icon class="apps">apps</mat-icon></button>
-          <button mat-icon-button class="increase_size" (click)="openDialog()" matTooltip="Account details"><mat-icon >account_circle</mat-icon></button>
-        </div>
-    </mat-toolbar-row>
+  <mat-toolbar-row>
+        <button mat-icon-button>
+          <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+        <img src="../../assets/Google_keep.png" alt="" srcset="">
+        <p>Keep</p>
+      <div class="mat-toolbar-row-col2">
+        <mat-icon>search</mat-icon>
+        <input matInput placeholder="Search">
+      </div>
+      <div class="mat-toolbar-row-col3" align="end">
+        <button mat-icon-button matTooltip="refresh"><mat-icon>refresh</mat-icon></button>
+        <button mat-icon-button matTooltip="List view"><mat-icon>view_stream</mat-icon></button>
+        <button mat-icon-button matTooltip="Settings"><mat-icon>settings</mat-icon></button>
+        <button mat-icon-button matTooltip="Google apps"><mat-icon class="apps">apps</mat-icon></button>
+        <button mat-icon-button class="increase_size" (click)="openDialog()" matTooltip="Account details"><mat-icon >account_circle</mat-icon></button>
+      </div>
+  </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-    <mat-sidenav #sidenav opened="false" mode="side">
-        <mat-nav-list>
-           <a mat-list-item routerLink="notes-component"><mat-icon>lightbulb</mat-icon><label>Notes</label></a>
-          <a mat-list-item ><mat-icon>notifications_none</mat-icon><label>Reminders</label></a>
-          <a mat-list-item ><mat-icon>edit</mat-icon><label>Edit labels</label></a>
-          <a mat-list-item routerLink="archive-component"><mat-icon>archive_none</mat-icon><label>Archive</label></a>
-          <a mat-list-item routerLink="trash-component"><mat-icon>delete</mat-icon><label>Trash</label></a>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-     <div style="height: 84vh;">
-        <!-- <div>
-          <app-notes-uimain *ngIf="callSide=='1'" (someEvent)="ngOnInit()"></app-notes-uimain>
-        </div>
-        <div></div>
-        <div></div>
-        <div>
-          <app-archive *ngIf="callSide=='4'"></app-archive>
-        </div>
-        <div></div> -->
+  <mat-sidenav #sidenav opened="false" mode="side">
+      <mat-nav-list>
+        <a mat-list-item routerLink="notes-component" routerLinkActive="active"><mat-icon>lightbulb</mat-icon><label>Notes</label></a>
+        <a mat-list-item routerLinkActive="active"><mat-icon>notifications_none</mat-icon><label>Reminders</label></a>
+        <a mat-list-item routerLinkActive="active"><mat-icon>edit</mat-icon><label>Edit labels</label></a>
+        <a mat-list-item routerLink="archive-component" routerLinkActive="active"><mat-icon>archive_none</mat-icon><label>Archive</label></a>
+        <a mat-list-item routerLink="trash-component" routerLinkActive="active"><mat-icon>delete</mat-icon><label>Trash</label></a>
+      </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+   <div style="height: 100vh;">
+      <!-- <div>
+        <app-notes-uimain *ngIf="callSide=='1'" (someEvent)="ngOnInit()"></app-notes-uimain>
+      </div>
+      <div></div>
+      <div></div>
+      <div>
+        <app-archive *ngIf="callSide=='4'"></app-archive>
+      </div>
+      <div></div> -->
 
-        <router-outlet></router-outlet>
-
-     </div>
-    </mat-sidenav-content>
+      <router-outlet></router-outlet>
+      <br/>
+      <br/>
+   </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
 
 
@@ -52,21 +53,21 @@
 
 
 <div class="ProfileDialog" *ngIf="profileDialogValue" (click)="closeoverlay($event)">
-  <button mat-icon-button (click)="CloseProfileDialog()" class="closeRight"><mat-icon >close</mat-icon></button>
-  <br/><br/>
-  <button mat-icon-button class="increase_size profile-margin" matTooltip="Edit"><mat-icon >account_circle</mat-icon></button>
-  <br/>
-  <p>Hi, {{user.id}}!</p>
-  <button class="account-manage">manage your account</button>
-  <br/><br/>
-  <div class="manageAccount" >
-    <a class="manageAccount1" routerLink="/reset_password">Reset Password</a>
-    <span class="manageAccount2" for="log">
-      <button mat-icon-button  for="log" (click)="logout()"><mat-icon>logout</mat-icon> </button>Logout
-    </span>
-  </div>
-  <mat-hint>Privacy Polocy | Terms of Service</mat-hint>
-  
+<button mat-icon-button (click)="CloseProfileDialog()" class="closeRight"><mat-icon >close</mat-icon></button>
+<br/><br/>
+<button mat-icon-button class="increase_size profile-margin" matTooltip="Edit"><mat-icon >account_circle</mat-icon></button>
+<br/>
+<p>Hi, {{user.id}}!</p>
+<button class="account-manage">manage your account</button>
+<br/><br/>
+<div class="manageAccount" >
+  <a class="manageAccount1" routerLink="/reset_password">Reset Password</a>
+  <span class="manageAccount2" for="log">
+    <button mat-icon-button  for="log" (click)="logout()"><mat-icon>logout</mat-icon> </button>Logout
+  </span>
+</div>
+<mat-hint>Privacy Polocy | Terms of Service</mat-hint>
+
 </div>
 
 

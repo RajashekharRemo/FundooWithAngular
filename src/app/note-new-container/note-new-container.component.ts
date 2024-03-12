@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Notes } from '../models/user.model';
 import { FundooAppService } from '../service/fundoo-app.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditContainerComponent } from '../edit-container/edit-container.component';
 
 @Component({
   selector: 'app-note-new-container',
@@ -9,13 +11,14 @@ import { FundooAppService } from '../service/fundoo-app.service';
 })
 export class NoteNewContainerComponent implements OnInit {
 
-  constructor(private service:FundooAppService) { }
+  constructor(private service:FundooAppService, private matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getAllNotes();
     
   }
 
+  
 
   user:any={
     id:'',
@@ -67,7 +70,7 @@ export class NoteNewContainerComponent implements OnInit {
     
   }
 
-
+  newlyAddedNote:Notes[]=[];
   expansion=true;
   expansionTitle(){
     this.expansion=!this.expansion;
@@ -82,7 +85,10 @@ export class NoteNewContainerComponent implements OnInit {
           this.service.createNoteOld(this.noteObj).subscribe((res)=>{
             console.log(res)
             console.log('Created');
-            
+            this.newlyAddedNote=res.note;
+            debugger
+            this.usersPrint.unshift(...this.newlyAddedNote);
+
             this.noteObj.title='';
             this.noteObj.color='#fff';
             this.noteObj.description='';
@@ -120,17 +126,56 @@ export class NoteNewContainerComponent implements OnInit {
   //   }
   // }
 
+  
+
   @ViewChild('fetchExpansionDivEle') d:any;
 
-
-  noteTodo=false;
-  notesIncrease(){
-    this.noteTodo=true;
+  UpdatedNotes={
+    id:'',
+    title:'',
+    description:'',
+    color:''
   }
 
-  notesDecrease(){
+  noteTodo=true;
+  notesIncrease(Notes:any){
     this.noteTodo=false;
+    // console.log(Notes);
+    // console.log(" from Increase");
+    
+    
+    const dialogRef=this.matDialog.open(EditContainerComponent, {width:'560px', data:Notes, panelClass: 'custom-modalbox'});
+    dialogRef.afterClosed().subscribe(resp => {
+      console.log('The dialog was closed');
+      
+      var res=this.usersPrint.filter(obj => obj.id === Notes.id );
+      console.log(res);
+
+      const obj = Object.assign({}, ...res);
+      //console.log("==============");
+      
+      this.UpdatedNotes.id=obj.id;
+      this.UpdatedNotes.title=obj.title;
+      this.UpdatedNotes.description=obj.description;
+      this.UpdatedNotes.color=obj.color;
+
+      this.service.updateNotes(this.UpdatedNotes).subscribe(res=>{
+        console.log(res);
+        this.noteTodo=true;
+        
+      })
+      //console.log(this.UpdatedNotes);
+      //console.log("Updated notes");
+      
+      
+      
+    });
+
   }
+
+  // notesDecrease(){
+  //   this.noteTodo=false;
+  // }
 
 
   handleArchive($Id:any){
@@ -139,6 +184,36 @@ export class NoteNewContainerComponent implements OnInit {
 
   handleTrash($Id:any){
     this.usersPrint=this.usersPrint.filter(res=>res.id!=$Id)
+  }
+
+
+  addColor={
+    id:'',
+    color:''
+  }
+  //@ViewChild('CardColorChange') CardColorChange:any; 
+  changeIteratedCardColor($event:any, note:any){
+    debugger
+    if($event!=null){
+      console.log($event);
+      this.addColor.color=$event;
+      this.addColor.id=note.id;
+      
+      //this.CardColorChange.nativeElement.style.backgroundColor=$event
+      this.service.addColor(this.addColor).subscribe(res=>{
+        console.log(res);
+        
+      })
+    }
+
+    this.usersPrint=this.usersPrint.map((item : any)=>{
+      if(item.id===this.addColor.id){
+        return {...item, color:this.addColor.color}
+      }
+      return item;
+    });
+    this.usersPrint=this.usersPrint.filter(res=>res.isArchive==false && res.isTrash==false)
+
   }
 
 }

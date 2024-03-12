@@ -77,5 +77,13 @@ export class FundooAppService {
     return this.http.put(this.NotesApiUrl+`/ToggleTrash?noteId=${Id}`, {}, {responseType:'text'})
   }
 
+  updateNotes(data5:any):Observable<any>{
+    debugger
+    return this.http.put(this.NotesApiUrl+`/UpdateAngular`, data5)
+  }
+
+  addColor(data6:any):Observable<any>{
+    return this.http.put(this.NotesApiUrl+`/AddColor`, data6, {responseType:'text'})
+  }
 
 }

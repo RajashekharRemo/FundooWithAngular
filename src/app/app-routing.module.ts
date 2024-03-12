@@ -7,11 +7,9 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { NotesComponent } from './notes/notes.component';
 import { ChatsystemComponent } from './chatsystem/chatsystem.component';
 import { AuthGuard } from './auth/auth.guard';
-import { TrashComponent } from './trash/trash.component';
-import { ArchiveComponent } from './archive/archive.component';
+
 import { NotesUIMainComponent } from './notes-uimain/notes-uimain.component';
 import { DashBoardContainerComponent } from './dash-board-container/dash-board-container.component';
-import { NotesContainerComponent } from './notes-container/notes-container.component';
 import { ArchiveContainerComponent } from './archive-container/archive-container.component';
 import { TrashContainerComponent } from './trash-container/trash-container.component';
 import { NoteNewContainerComponent } from './note-new-container/note-new-container.component';
@@ -22,7 +20,6 @@ const routes: Routes = [
   {path : "reset_password", component:ResetPasswordComponent},
   {path:"create-account", component:CreateAccountComponent},
   {path:"chat", component:ChatsystemComponent},
-  {path:'archive', component:ArchiveComponent},
   {path:'notesUI', component:NotesUIMainComponent},
   {path:'dashboard', component:DashBoardContainerComponent, children:[
     {path:'notes-component', component:NoteNewContainerComponent},

@@ -1,3 +1,4 @@
+
 <br/>
 <br/>
 <br/>
@@ -9,17 +10,20 @@
 
 
       <div [class]="noteTodo?'make-side-dark-card':'make-side-normal-card'">
-        <mat-card [style.background-color]="notes.color"  [class]="noteTodo?'increaseCard':'decreaseCard'" >
-            <mat-card-title (click)="notesIncrease()">
-              <input type="text" [(ngModel)]="notes.title"   >
+        <mat-card [style.background-color]="notes.color"  class="decreaseCard" *ngIf="noteTodo" >
+            <mat-card-title (click)="notesIncrease(notes)">
+              <p>{{notes.title}}</p>
             </mat-card-title>
-            <mat-card-content (click)="notesIncrease()">
+            <mat-card-content (click)="notesIncrease(notes)">
               {{notes.description}}
             </mat-card-content>
             <mat-card-actions>
               <!-- <app-notes-icons [noteId]="notes.id"></app-notes-icons> -->
-              <app-icons class="iconMargin" [NoteId]="notes.id" (toggleTrash)="handleTrash($event)"></app-icons><!--(colorChange)="handleEvent($event)"-->
-              <button mat-button (click)="notesDecrease()" *ngIf="noteTodo">Close</button>
+              <!-- <app-icons class="iconMargin" [NoteId]="notes.id" (toggleTrash)="handleTrash(notes)"></app-icons>(colorChange)="handleEvent($event)" -->
+              <!-- <button mat-button (click)="notesDecrease()" *ngIf="noteTodo">Close</button> -->
+
+              <button mat-icon-button matTooltip="Deleter forever" (click)="deleteNote(notes)"><mat-icon>delete_forever</mat-icon></button>
+              <button mat-icon-button matTooltip="Restore" (click)="toggleTrash(notes)"><mat-icon> restore_from_trash</mat-icon></button>
             </mat-card-actions>
           </mat-card>
     </div>

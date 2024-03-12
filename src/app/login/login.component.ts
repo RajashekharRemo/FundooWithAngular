@@ -52,9 +52,9 @@ export class LoginComponent implements OnInit {
             alert("Login Success");
             localStorage.setItem('token', res.user.token)
             localStorage.setItem('id', res.user.id)
-            localStorage.removeItem('firstName');
             localStorage.setItem('first_name', res.user.first_name)
-            this.router.navigate(['dashboard'], {queryParams:res.user});
+            //this.router.navigate(['dashboard'], {queryParams:res.user});
+            this.router.navigate(['dashboard/notes-component']);
             this.user.user=res.user;
 
           }

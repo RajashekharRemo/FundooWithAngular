@@ -1,26 +1,60 @@
-button mat-icon{
+
+
+
+.decreaseCard{
+    width: 232px;
+    margin-top: 20px;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+ mat-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.415) 2px 2px 3px 3px;
+}
+
+
+
+
+mat-card mat-card-actions{
+    opacity: 0;
+
+}
+
+mat-card:hover mat-card-actions{
+    opacity: 1;
+}
+
+
+
+
+//======================================
+
+mat-card-actions button mat-icon{
     font-size: medium;
     color: rgba(0, 0, 0, 0.692);
     
 }
 
-button:hover{
+mat-card-actions button:hover{
     background-color: #c9cdd3cd;
 }
 
 
 .addColors{
+
     position: absolute;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.415) 2px 2px 3px 3px;
     padding: 10px;
     z-index: 3;
-    // bottom: 50px;
-    // left: 57px;
-    width: 450px;
     border-radius: 5px;
-    margin-top: 50px;
+    width: 450px;
 }
+
 
 .addColors button{
     cursor: pointer;
@@ -31,15 +65,15 @@ button:hover{
 
 .moreList{
     position: absolute;
-    top: 190px;
-    left: 130px;
-    width: 170px;
+    //bottom: 60px;
     height: fit-content;
     //border: 2px solid;
     z-index: 1;
+    width: 160px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.153) 2px 4px 2px 2px;
      border-radius: 5px;
+     margin-left: 200px;
 }
 
 .moreList ul{
@@ -89,3 +123,4 @@ button:hover{
     background-color: #efeff1;
     cursor: pointer;
 }
+

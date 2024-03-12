@@ -35,16 +35,15 @@ import { ProfileDialogComponent } from './DialogBoxes/profile-dialog/profile-dia
 import { NotesiconsComponent } from './notesicons/notesicons.component';
 import { NoteCardsComponent } from './note-cards/note-cards.component';
 import { CustomeInterceptorInterceptor } from './service/custome-interceptor.interceptor';
-import { TrashComponent } from './trash/trash.component';
-import { ArchiveComponent } from './archive/archive.component';
 import { FundooAppService } from './service/fundoo-app.service';
 import { NotesUIMainComponent } from './notes-uimain/notes-uimain.component';
 import { DashBoardContainerComponent } from './dash-board-container/dash-board-container.component';
-import { NotesContainerComponent } from './notes-container/notes-container.component';
 import { TrashContainerComponent } from './trash-container/trash-container.component';
 import { ArchiveContainerComponent } from './archive-container/archive-container.component';
 import { NoteNewContainerComponent } from './note-new-container/note-new-container.component';
 import { IconsComponent } from './icons/icons.component';
+import { EditContainerComponent } from './edit-container/edit-container.component';
+import { CardAndIconsComponent } from './card-and-icons/card-and-icons.component';
 
 @NgModule({
   declarations: [
@@ -58,15 +57,14 @@ import { IconsComponent } from './icons/icons.component';
     ProfileDialogComponent,
     NotesiconsComponent,
     NoteCardsComponent,
-    TrashComponent,
-    ArchiveComponent,
     NotesUIMainComponent,
     DashBoardContainerComponent,
-    NotesContainerComponent,
     TrashContainerComponent,
     ArchiveContainerComponent,
     NoteNewContainerComponent,
-    IconsComponent
+    IconsComponent,
+    EditContainerComponent,
+    CardAndIconsComponent
   ],
   imports: [
     BrowserModule,
