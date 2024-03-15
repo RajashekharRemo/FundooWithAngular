@@ -68,21 +68,38 @@ export class TrashContainerComponent implements OnInit {
       console.log("Deleted");
       
     })
-    this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id && res.isTrash!=note.isTrash)
+    this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id )
 
   }
 
 
-
+  noteId:any;
+  undoRedo=false;
+  xInterval:any;
+  newArr:any;
   toggleTrash(note:any){
-    this.service.trashNoteById(note.id).subscribe(res=>{
+    this.noteId=note.id
+    this.undoRedo=true;
+    this.newArr=this.usersPrint.filter(res=>res.id==note.id )
+    this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id )
+    this.xInterval=setInterval(()=>{
+      this.service.trashNoteById(note.id).subscribe(res=>{
       console.log(res);
-      this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id && res.isTrash!=note.isTrash)
-     
+      this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id )
     })
+    this.undoRedo=false;
+    }, 6000);
+    
     //console.log(this.noteId)
   }
 
+  undo(){
+    debugger
+    this.undoRedo=false;
+    //this.xInterval.
+    clearInterval(this.xInterval)
+    this.usersPrint.unshift(...this.newArr);
+  }
   
 UpdatedNotes={
   id:'',
@@ -125,6 +142,8 @@ this.noteTodo=true;
     });
 
   } 
+
+
 
 
 

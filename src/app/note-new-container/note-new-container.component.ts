@@ -138,17 +138,17 @@ export class NoteNewContainerComponent implements OnInit {
   }
 
   noteTodo=true;
-  notesIncrease(Notes:any){
-    this.noteTodo=false;
+  notesIncrease($Notes:any){
+    //this.noteTodo=false;
     // console.log(Notes);
     // console.log(" from Increase");
     
     
-    const dialogRef=this.matDialog.open(EditContainerComponent, {width:'560px', data:Notes, panelClass: 'custom-modalbox'});
-    dialogRef.afterClosed().subscribe(resp => {
-      console.log('The dialog was closed');
+    // const dialogRef=this.matDialog.open(EditContainerComponent, {width:'560px', data:Notes, panelClass: 'custom-modalbox'});
+    // dialogRef.afterClosed().subscribe(resp => {
+    //   console.log('The dialog was closed');
       
-      var res=this.usersPrint.filter(obj => obj.id === Notes.id );
+      var res=this.usersPrint.filter(obj => obj.id === $Notes.id );
       console.log(res);
 
       const obj = Object.assign({}, ...res);
@@ -161,15 +161,20 @@ export class NoteNewContainerComponent implements OnInit {
 
       this.service.updateNotes(this.UpdatedNotes).subscribe(res=>{
         console.log(res);
-        this.noteTodo=true;
+        //this.noteTodo=true;
         
       })
+      debugger
       //console.log(this.UpdatedNotes);
       //console.log("Updated notes");
+      if(obj.isArchive){
+        this.usersPrint=this.usersPrint.filter(res=>res.id!=obj.id)
+      }else if(obj.isTrash){
+        this.usersPrint=this.usersPrint.filter(res=>res.id!=obj.id)
+      }
       
       
-      
-    });
+    // });
 
   }
 
@@ -178,8 +183,40 @@ export class NoteNewContainerComponent implements OnInit {
   // }
 
 
+
+
+  toggleUndo(note:any){
+    
+    this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id && res.isTrash!=note.isTrash)
+    
+    
+    //console.log(this.noteId)
+  }
+
+  noteId:any;
+  undoRedo=false;
+  xInterval:any;
+  newArr:any;
+  undo(){
+    this.undoRedo=false;
+    //this.xInterval.
+    clearInterval(this.xInterval)
+    this.usersPrint.unshift(...this.newArr);
+    
+  }
+
   handleArchive($Id:any){
+    // this.noteId=$Id
+    // this.undoRedo=true;
+    // this.newArr=this.usersPrint.filter(res=>res.id==$Id )
     this.usersPrint=this.usersPrint.filter(res=>res.id!=$Id)
+    // this.xInterval=setInterval(()=>{
+    //   this.service.archiveNotes($Id).subscribe(res=>{
+    //   console.log(res);
+    //   this.usersPrint=this.usersPrint.filter(res=>res.id!=$Id )
+    // })
+    // this.undoRedo=false;
+    // }, 6000);
   }
 
   handleTrash($Id:any){
@@ -215,5 +252,6 @@ export class NoteNewContainerComponent implements OnInit {
     this.usersPrint=this.usersPrint.filter(res=>res.isArchive==false && res.isTrash==false)
 
   }
+
 
 }

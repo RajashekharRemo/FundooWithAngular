@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Inject, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Notes } from '../models/user.model';
+import { FundooAppService } from '../service/fundoo-app.service';
 
 @Component({
   selector: 'app-edit-container',
@@ -14,7 +15,7 @@ export class EditContainerComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditContainerComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Notes,
+    @Inject(MAT_DIALOG_DATA) public data: Notes,private services:FundooAppService
   ) {}
 
   isDisable=false;
@@ -55,6 +56,24 @@ export class EditContainerComponent implements OnInit {
   toggleMore(){
     this.more=!this.more;
     
+  }
+
+
+  archive(){
+    debugger
+    this.services.archiveNotes(this.data.id).subscribe(res=>{
+      console.log(res);
+      this.data.isArchive=!this.data.isArchive;
+    })
+  }
+
+  trashNoteById(){
+    debugger
+    this.services.trashNoteById(this.data.id).subscribe(res=>{
+      console.log(res);
+      this.data.isTrash=!this.data.isTrash;
+      this.more=!this.more;
+    })
   }
 
 }

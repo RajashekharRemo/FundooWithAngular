@@ -30,3 +30,8 @@
 
     </ng-container>
   </div>
+
+
+  <div class="toggleTrash" *ngIf="undoRedo">
+    <button (click)="undo()">Undo</button>
+  </div>

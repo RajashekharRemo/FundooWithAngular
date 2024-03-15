@@ -66,29 +66,15 @@
     <!--******************************************************************************************-->
 
     <div class="cardsOfNotes" >
-      <ng-container *ngFor="let notes of usersPrint" #CardColorChange>
-        <!-- <app-note-cards [notes]="notes"></app-note-cards> -->
-
-
-
-        <div [class]="noteTodo?'make-side-dark-card':'make-side-normal-card'">
-          <mat-card [style.background-color]="notes.color" class="decreaseCard" *ngIf="noteTodo" >
-              <mat-card-title (click)="notesIncrease(notes)">
-                <p>{{notes.title}}</p>
-              </mat-card-title>
-              <mat-card-content (click)="notesIncrease(notes)">
-                {{notes.description}}
-              </mat-card-content>
-              <mat-card-actions>
-                <!-- <app-notes-icons [noteId]="notes.id"></app-notes-icons> -->
-                <app-icons class="iconMargin" (colorChange)="changeIteratedCardColor($event, notes)" [NoteId]="notes.id" (toggleTrash)="handleTrash($event)" (toggleArchive)="handleArchive($event)"></app-icons><!--(colorChange)="handleEvent($event)"-->
-                <!-- <button mat-button (click)="notesDecrease()" *ngIf="noteTodo">Close</button> -->
-              </mat-card-actions>
-            </mat-card>
+      <div class="cardsOfRow" *ngFor="let notes of usersPrint">
+        <app-card-and-icons [Notes]="notes" (toggleArchive)="handleArchive($event)" (toggleTrash)="handleTrash($event)" (colorChange)="changeIteratedCardColor($event, notes)" (updateNotes)="notesIncrease($event)" ></app-card-and-icons>
       </div>
-
-      </ng-container>
     </div>
     
 
   </div>
+
+
+  <!-- <div class="toggleTrash" *ngIf="undoRedo">
+    <button (click)="undo()">Undo</button>
+  </div> -->

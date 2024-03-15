@@ -56,7 +56,7 @@ export class ArchiveContainerComponent implements OnInit {
 
 
   handleArchive(note:any){
-    this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id && res.isArchive!=note.isArchive)
+    this.usersPrint=this.usersPrint.filter(res=>res.id!=note.id )
   }
 
 
@@ -72,9 +72,9 @@ UpdatedNotes={
   color:''
 }
 
-
+noteTodo=true;
 notesIncrease($Notes:any){
-  //this.noteTodo=true;
+  this.noteTodo=false;
   // console.log(Notes);
   // console.log(" from Increase");
   
@@ -96,7 +96,7 @@ notesIncrease($Notes:any){
 
     this.service.updateNotes(this.UpdatedNotes).subscribe(res=>{
       console.log(res);
-      //this.noteTodo=true;
+      this.noteTodo=true;
     })
     //console.log(this.UpdatedNotes);
     //console.log("Updated notes");

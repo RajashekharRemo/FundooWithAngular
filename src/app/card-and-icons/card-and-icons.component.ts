@@ -72,6 +72,7 @@ export class CardAndIconsComponent implements OnInit, OnChanges {
 
 
 
+
   @Output() updateNotes=new EventEmitter<any>()
 
   

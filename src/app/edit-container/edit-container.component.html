@@ -4,7 +4,7 @@
     </div>
     <div class="text-area-mat-hind">
         <textarea class="text-area-description" name="" id="" cols="60" rows="10" [(ngModel)]="data.description" [disabled]="isDisable"></textarea>
-        <mat-hint>modified At {{data.modifiedAt}}</mat-hint>
+        <mat-hint>modified At {{data.modifiedAt | date : 'EEEE, MMMM d, y'}}</mat-hint>
     </div><br/><br/>
     <div class="icons-close-buttons">
         <div>
@@ -12,7 +12,7 @@
             <button mat-icon-button matTooltip="Collaborator"><mat-icon >person_add</mat-icon></button>
             <button mat-icon-button matTooltip="Background options" (click)="callColors()"><mat-icon  >palette</mat-icon></button><!--(click)="callColors()"-->
             <button mat-icon-button matTooltip="Add image"><mat-icon>image</mat-icon></button>
-            <button mat-icon-button matTooltip="Archive" ><mat-icon >archive</mat-icon></button><!--(click)="archive()"-->
+            <button mat-icon-button matTooltip="Archive" (click)="archive()"><mat-icon >archive</mat-icon></button><!--(click)="archive()"-->
             <button mat-icon-button matTooltip="More" (click)="toggleMore()" ><mat-icon >more_vert</mat-icon></button><!--(click)="toggleMore()"-->
 
         </div>
@@ -38,7 +38,7 @@
 
   <div class="moreList" *ngIf="more" ><!--*ngIf="more"--><!--(click)="closerOverlay($event)"-->
     <ul>
-        <li >Delete note</li><!--(click)="trashNoteById()"-->
+        <li (click)="trashNoteById()">Delete note</li><!--(click)="trashNoteById()"-->
         <li>Add label</li>
         <li>Add drawing</li>
         <li>Make a copy</li>

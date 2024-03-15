@@ -1,7 +1,7 @@
 <div [style.background]="Notes.color" >
     <mat-card [style.background-color]="Notes.color"  class="decreaseCard">
         <mat-card-title (click)="notesIncrease(Notes)"><!--(click)="notesIncrease(notes)"-->
-          <p>{{Notes.title}}</p>
+          <span>{{Notes.title}}</span>
         </mat-card-title>
         <br/>
         <mat-card-content (click)="notesIncrease(Notes)"> <!--(click)="notesIncrease(notes)"-->
@@ -61,3 +61,5 @@
             <li>Show checkboxes</li>
         </ul>
     </div> -->
+
+

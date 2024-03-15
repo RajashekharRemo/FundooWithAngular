@@ -86,4 +86,32 @@ export class FundooAppService {
     return this.http.put(this.NotesApiUrl+`/AddColor`, data6, {responseType:'text'})
   }
 
+
+  private history:Array<any[]>=[];
+  private currentIndex=-1;
+
+  addToHistory(snapshot:any[]):void{
+    this.history=this.history.slice(0, this.currentIndex+1);
+    this.history.push(snapshot);
+    this.currentIndex++;
+  }
+
+  undo():any[]|null
+  {
+    if(this.currentIndex>0){
+      this.currentIndex--;
+      return this.history[this.currentIndex];
+    }
+    return null;
+  }
+
+  redo():any[]|null
+  {
+    if(this.currentIndex<this.history.length-1){
+      this.currentIndex++;
+      return this.history[this.currentIndex];
+    }
+    return null;
+  }
+
 }
